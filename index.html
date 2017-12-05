@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        canvas {
+            background: #000;
+        }
+
+        #canvas3 {
+            width: 400px;
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+<!-- 写一个Canvas -->
+<canvas id="canvas1"></canvas>
+<!-- 使用html属性定义宽高 -->
+<canvas id="canvas2" width="400" height="400"></canvas>
+<!-- JS设置宽高 -->
+<canvas id="canvas3"></canvas>
+<!-- 画一个点 -->
+<canvas id="canvas4"></canvas>
+<!-- 画一个1/4圆 -->
+<canvas id="canvas5"></canvas>
+<!-- 一条直线 -->
+<canvas id="canvas6"></canvas>
+<!-- 一条折线 -->
+<canvas id="canvas7"></canvas>
+<!-- 有样式的线条 -->
+<canvas id="canvas8"></canvas>
+<!-- 矩形 -->
+<canvas id="canvas9"></canvas>
+<!-- 设置阴影 -->
+<canvas id="canvas10"></canvas>
+<!-- 粉色到白色的由上向下的渐变 -->
+<canvas id="canvas11"></canvas>
+<!-- 彩虹渐变 -->
+<canvas id="canvas12"></canvas>
+<!-- 缩放 -->
+<canvas id="canvas13"></canvas>
+<!-- 旋转 -->
+<canvas id="canvas14"></canvas>
+<!-- 图像绘制 -->
+<img id="tulip" src="http://www.w3school.com.cn/i/eg_tulip.jpg" alt="The Tulip"/>
+<canvas id="canvas15"></canvas>
+<script>
+    var canvas2 = document.getElementById("canvas2");
+    var context2 = canvas2.getContext("2d");
+    context2.beginPath();
+    context2.arc(100, 100, 50, 0, Math.PI * 2, true);
+    context2.closePath();
+    context2.fillStyle = 'rgb(255,255,255)';
+    context2.fill();
+
+    var canvas3 = document.getElementById("canvas3");
+    var context3 = canvas3.getContext("2d");
+    canvas3.width = 400;
+    canvas3.height = 400;
+    context3.beginPath();
+    context3.arc(100, 100, 50, 0, Math.PI * 2, true);
+    context3.closePath();
+    context3.fillStyle = 'rgb(255,255,255)';
+    context3.fill();
+
+    var canvas4 = document.getElementById("canvas4");
+    var context4 = canvas4.getContext("2d");
+    canvas4.width = 400;
+    canvas4.height = 400;
+    context4.beginPath();
+    context4.arc(100, 100, 1, 0, Math.PI * 2, true);
+    context4.closePath();
+    context4.fillStyle = 'rgb(255,255,255)';
+    context4.fill();
+
+    var canvas5 = document.getElementById("canvas5");
+    var context5 = canvas5.getContext("2d");
+    canvas5.width = 400;
+    canvas5.height = 400;
+    context5.beginPath();
+    context5.arc(100, 100, 50, 0, Math.PI * 0.5, false);
+    context5.strokeStyle = "white";
+    context5.stroke();
+
+    var canvas6 = document.getElementById("canvas6");
+    var context6 = canvas6.getContext("2d");
+    canvas6.width = 400;
+    canvas6.height = 400;
+    context6.beginPath();
+    context6.moveTo(50, 50);
+    context6.lineTo(100, 100);
+    context6.strokeStyle = '#fff';
+    context6.stroke();
+
+    var canvas7 = document.getElementById("canvas7");
+    var context7 = canvas7.getContext("2d");
+    canvas7.width = 400;
+    canvas7.height = 400;
+    context7.beginPath();
+    context7.lineTo(200, 200);
+    context7.lineTo(200, 100);
+    context7.lineTo(100, 50);
+    context7.strokeStyle = '#fff';
+    context7.stroke();
+
+    var canvas8 = document.getElementById("canvas8");
+    var context8 = canvas8.getContext("2d");
+    canvas8.width = 400;
+    canvas8.height = 400;
+    context8.beginPath();
+    context8.moveTo(10, 10);
+    context8.lineTo(100, 100);
+    context8.lineWidth = 10;
+    context8.lineCap = 'round';
+    context8.strokeStyle = '#fff';
+    context8.stroke();
+
+    var canvas9 = document.getElementById("canvas9");
+    var context9 = canvas9.getContext("2d");
+    canvas9.width = 400;
+    canvas9.height = 400;
+    context9.beginPath();
+    context9.fillStyle = '#fff';
+    context9.fillRect(10, 10, 100, 100);
+    context9.strokeStyle = '#fff';
+    context9.strokeRect(130, 10, 100, 100);
+
+    var canvas10 = document.getElementById("canvas10");
+    var context10 = canvas10.getContext("2d");
+    canvas10.width = 400;
+    canvas10.height = 400;
+    context10.beginPath();
+    context10.arc(100, 100, 50, 0, 2 * Math.PI, false);
+    context10.fillStyle = '#fff';
+    context10.shadowBlur = 20;
+    context10.shadowColor = '#fff';
+    context10.fill()
+
+    var canvas11 = document.getElementById("canvas11");
+    var context11 = canvas11.getContext("2d");
+    canvas11.width = 400;
+    canvas11.height = 400;
+    var grd11 = context11.createLinearGradient(100, 100, 100, 200);
+    grd11.addColorStop(0, 'pink');
+    grd11.addColorStop(1, 'white');
+    context11.fillStyle = grd11;
+    context11.fillRect(100, 100, 200, 200);
+
+    var canvas12 = document.getElementById("canvas12");
+    var context12 = canvas12.getContext("2d");
+    canvas12.width = 400;
+    canvas12.height = 400;
+    var grd12 = context12.createLinearGradient(0, 0, 0, 400);
+    grd12.addColorStop(0, 'rgb(255, 0, 0)');
+    grd12.addColorStop(0.2, 'rgb(255, 165, 0)');
+    grd12.addColorStop(0.3, 'rgb(255, 255, 0)');
+    grd12.addColorStop(0.5, 'rgb(0, 255, 0)');
+    grd12.addColorStop(0.7, 'rgb(0, 127, 255)');
+    grd12.addColorStop(0.9, 'rgb(0, 0, 255)');
+    grd12.addColorStop(1, 'rgb(139, 0, 255)');
+    context12.fillStyle = grd12;
+    context12.fillRect(0, 0, 400, 400);
+
+    var canvas13 = document.getElementById("canvas13");
+    var context13 = canvas13.getContext("2d");
+    canvas13.width = 400;
+    canvas13.height = 400;
+    context13.strokeStyle = 'white';
+    context13.strokeRect(5, 5, 50, 25);
+    context13.scale(2, 2);
+    context13.strokeRect(5, 5, 50, 25);
+    context13.scale(2, 2);
+    context13.strokeRect(5, 5, 50, 25);
+
+    var canvas14 = document.getElementById("canvas14");
+    var context14 = canvas14.getContext("2d");
+    canvas14.width = 400;
+    canvas14.height = 400;
+    context14.fillStyle = 'white';
+    context14.rotate(20 * Math.PI / 180);
+    context14.fillRect(70, 30, 200, 100);
+
+    document.getElementById("tulip").onload = function () {
+        var canvas15 = document.getElementById("canvas15");
+        var context15 = canvas15.getContext("2d");
+        context15.width = 400;
+        context15.height = 400;
+        var img = document.getElementById("tulip");
+        context15.drawImage(img, 90, 130, 90, 80, 20, 20, 90, 80);
+    }
+</script>
+</body>
+</html>
