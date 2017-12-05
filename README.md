@@ -325,10 +325,214 @@ angle : 旋转角度，以弧度计。
 
 ## 随机粒子
 
+- 创建粒子类
+
+```aidl
+function Round_item(index,x,y) {
+        this.index = index;
+        this.x = x;
+        this.y = y;
+        this.r = Math.random() * 2 + 1;
+        var alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
+        this.color = "rgba(255,255,255," + alpha + ")";
+    }
+```
+
+- 定义粒子
+
+```aidl
+Round_item.prototype.draw = function () {
+        content.fillStyle = this.color;
+        content.shadowBlur = this.r * 2;
+        content.beginPath();
+        content.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        content.closePath();
+        content.fill();
+    };
+```
+
+- 初始化粒子
+
+```aidl
+function init() {
+        for(var i = 0; i < initRoundPopulation; i++ ){
+            round[i] = new Round_item(i,Math.random() * WIDTH,Math.random() * HEIGHT);
+            round[i].draw();
+        }
+    }
+```
+
+- **完整代码**
+
+```aidl
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>随机粒子</title>
+    <style>
+        html, body {
+            margin: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            /*cursor: none;*/
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    var ctx = document.getElementById('canvas'),
+        content = ctx.getContext('2d'),
+        round = [],
+        WIDTH,
+        HEIGHT,
+        initRoundPopulation = 80;
+    WIDTH = document.documentElement.clientWidth;
+    HEIGHT = document.documentElement.clientHeight;
+
+    ctx.width = WIDTH;
+    ctx.height = HEIGHT;
+
+    function Round_item(index, x, y) {
+        this.index = index;
+        this.x = x;
+        this.y = y;
+        this.r = Math.random() * 2 + 1;
+        var alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
+        this.color = "rgba(255,255,255," + alpha + ")";
+    }
+
+    Round_item.prototype.draw = function () {
+        content.fillStyle = this.color;
+        content.shadowBlur = this.r * 2;
+        content.beginPath();
+        content.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        content.closePath();
+        content.fill();
+    };
+
+    function init() {
+        for (var i = 0; i < initRoundPopulation; i++) {
+            round[i] = new Round_item(i, Math.random() * WIDTH, Math.random() * HEIGHT);
+            round[i].draw();
+        }
+    }
+
+    init();
+</script>
+</body>
+</html>
+```
+
 ### 动起来
 
+- 定义粒子的运动
 
+```aidl
+    Round_item.prototype.move = function () {
+        this.y -= 0.15;
+        if (this.y <= -10)
+            this.y = HEIGHT + 10;
+        this.draw();
+    };
+```
 
+- 添加定时器
 
+```aidl
+    function animate() {
+        content.clearRect(0, 0, WIDTH, HEIGHT);
+        for (var i in round)
+            round[i].move();
+        requestAnimationFrame(animate)
+    }
+```
 
+- 完整代码
+
+```aidl
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        html, body {
+            margin: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            /*cursor: none;*/
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<script>
+    var ctx = document.getElementById('canvas'),
+        content = ctx.getContext('2d'),
+        round = [],
+        WIDTH,
+        HEIGHT,
+        initRoundPopulation = 200;
+
+    WIDTH = document.documentElement.clientWidth;
+    HEIGHT = document.documentElement.clientHeight;
+
+    ctx.width = WIDTH;
+    ctx.height = HEIGHT;
+
+    function Round_item(index, x, y) {
+        this.index = index;
+        this.x = x;
+        this.y = y;
+        this.r = Math.random() * 2 + 1;
+        var alpha = (Math.floor(Math.random() * 10) + 1) / 10 / 2;
+        this.color = "rgba(255,255,255," + alpha + ")";
+    }
+
+    Round_item.prototype.draw = function () {
+        content.fillStyle = this.color;
+        content.shadowBlur = this.r * 2;
+        content.beginPath();
+        content.arc(this.x, this.y, this.r, 0, 2 * Math.PI, false);
+        content.closePath();
+        content.fill();
+    };
+
+    function animate() {
+        content.clearRect(0, 0, WIDTH, HEIGHT);
+        for (var i in round)
+            round[i].move();
+        requestAnimationFrame(animate)
+    }
+
+    Round_item.prototype.move = function () {
+        this.y -= 0.15;
+        if (this.y <= -10)
+            this.y = HEIGHT + 10;
+        this.draw();
+    };
+
+    function init() {
+        for (var i = 0; i < initRoundPopulation; i++) {
+            round[i] = new Round_item(i, Math.random() * WIDTH, Math.random() * HEIGHT);
+            round[i].draw();
+        }
+        animate();
+    }
+
+    init();
+</script>
+</body>
+</html>
+```
+
+## 鼠标
+
+......未完待续
 
