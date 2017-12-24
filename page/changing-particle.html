@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>移动的随机粒子</title>
     <style>
         html, body {
             margin: 0;
@@ -56,7 +56,8 @@
     }
 
     Round_item.prototype.move = function () {
-        this.y -= 0.15;
+        this.y -= 1.15;
+        this.x -= Math.random() * 5;
         if (this.y <= -10)
             this.y = HEIGHT + 10;
         this.draw();
