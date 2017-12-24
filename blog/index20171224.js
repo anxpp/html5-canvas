@@ -93,22 +93,3 @@ function loop() {
     camera.lookAt(scene.position);
     renderer.render(scene, camera);
 }
-
-
-(function () {
-    'use strict';
-    var dialog = document.querySelector('#modal-example');
-    var closeButton = dialog.querySelector('#close');
-    var showButton = document.querySelector('#contact');
-    if (!dialog.showModal) {
-        dialogPolyfill.registerDialog(dialog);
-    }
-    var closeClickHandler = function (event) {
-        dialog.close();
-    };
-    var showClickHandler = function (event) {
-        dialog.showModal();
-    };
-    showButton.addEventListener('click', showClickHandler);
-    closeButton.addEventListener('click', closeClickHandler);
-}());
