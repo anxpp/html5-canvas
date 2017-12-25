@@ -29,13 +29,14 @@ html {
     padding: 0;
     position: absolute;
     top: 20%;
-    left: 16%;
-    right: 16%;
-    font-size: 100px;
+    left: 0;
+    right: 0;
+    font-size: 64px;
     margin: -66px 0 0;
     text-align: center;
     perspective: 600px;
     background: none;
+    z-index: -100;
 }
 
 #title span {
@@ -203,13 +204,6 @@ body {
     background: linear-gradient(to right, #414345, #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-@media screen and (max-width: 700px) {
-    body {
-        padding: 170px 0 0 0;
-        width: 100%;
-    }
-}
-
 a {
     color: inherit;
     text-decoration: none
@@ -219,13 +213,13 @@ a {
 .menu-open-button {
     background: #EEEEEE;
     border-radius: 100%;
-    width: 128px;
-    height: 128px;
-    margin-left: -64px;
+    width: 112px;
+    height: 112px;
+    margin-left: -56px;
     position: absolute;
     color: #FFFFFF;
     text-align: center;
-    line-height: 128px;
+    line-height: 100px;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
     -webkit-transition: -webkit-transform ease-out 200ms;
@@ -237,7 +231,7 @@ a {
 }
 
 #launchStyledModal{
-    font-size: small;
+    font-size: x-small;
     line-height: 24px;
     border-radius: 100%;
 }
@@ -302,7 +296,7 @@ a {
     height: 80px;
     text-align: center;
     box-sizing: border-box;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 /* .menu-item {
@@ -387,50 +381,50 @@ a {
 .menu-open:checked ~ .menu-item:nth-child(3) {
     transition-duration: 180ms;
     -webkit-transition-duration: 180ms;
-    -webkit-transform: translate3d(0px, -104.99997px, 0);
-    transform: translate3d(0px, -154.99997px, 0);
+    -webkit-transform: translate3d(0px, -80px, 0);
+    transform: translate3d(0px, -140px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(4) {
     transition-duration: 280ms;
     -webkit-transition-duration: 280ms;
-    -webkit-transform: translate3d(91px, -52.47586px, 0);
-    transform: translate3d(141px, -78.47586px, 0);
+    -webkit-transform: translate3d(70px, -45px, 0);
+    transform: translate3d(130px, -70px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(5) {
     transition-duration: 380ms;
     -webkit-transition-duration: 380ms;
-    -webkit-transform: translate3d(91px, 52px, 0);
-    transform: translate3d(141px, 78px, 0);
+    -webkit-transform: translate3d(70px, 45px, 0);
+    transform: translate3d(130px, 70px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(6) {
     transition-duration: 480ms;
     -webkit-transition-duration: 480ms;
-    -webkit-transform: translate3d(0px, 105px, 0);
-    transform: translate3d(0px, 155px, 0);
+    -webkit-transform: translate3d(0px, 80px, 0);
+    transform: translate3d(0px, 140px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(7) {
     transition-duration: 580ms;
     -webkit-transition-duration: 580ms;
-    -webkit-transform: translate3d(-90.86291px, 53px, 0);
-    transform: translate3d(-140.86291px, 79px, 0);
+    -webkit-transform: translate3d(-70px, 45px, 0);
+    transform: translate3d(-130px, 70px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(8) {
     transition-duration: 680ms;
     -webkit-transition-duration: 680ms;
-    -webkit-transform: translate3d(-91.03006px, -52.33095px, 0);
-    transform: translate3d(-140.03006px, -78.33095px, 0);
+    -webkit-transform: translate3d(-70px, -45px, 0);
+    transform: translate3d(-130px, -70px, 0);
 }
 
 .menu-open:checked ~ .menu-item:nth-child(9) {
     transition-duration: 780ms;
     -webkit-transition-duration: 780ms;
-    -webkit-transform: translate3d(-0.25084px, -104.9997px, 0);
-    transform: translate3d(-0.25084px, -154.9997px, 0);
+    -webkit-transform: translate3d(-1px, -90px, 0);
+    transform: translate3d(-1px, -154.9997px, 0);
 }
 
 .blue {
