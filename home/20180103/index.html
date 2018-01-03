@@ -8,11 +8,9 @@
     <meta name="keywords" content="anxpp, 暗香飘飘, Tiny Software Studio, 免费建站">
     <meta name="author" content="anxpp">
     <title>Tiny Software</title>
-    <link type="favicon" rel="shortcut icon" href="favicon.ico" />
-    <link href="20171224/index20171224.css" rel="stylesheet">
+    <link href="index.css" rel="stylesheet">
 </head>
-<!--<body onload="init()">-->
-<body>
+<body onload="init()">
 
 <nav class="menu">
     <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
@@ -43,17 +41,31 @@
 <footer class="demo-footer">
     <span>Copyright&nbsp;&nbsp;©&nbsp;&nbsp;Tiny Software Studio 2016.&nbsp;&nbsp;&nbsp;&nbsp;All Rights Reserved&nbsp;&nbsp;&nbsp;渝ICP备15010564号</span>
 </footer>
-<script type="text/javascript" src="20171224/tree20171224.js"></script>
-<!--<script type="text/javascript" src="snow20171224.js"></script>-->
-<!--<script src="20180103/pasition.js"></script>-->
-<script src="20171224/index20171224.js"></script>
-<script src="20171224/nest.js"></script>
-<!--<script>-->
-    <!--bubbly({-->
-        <!--colorStart: "#4c004c",-->
-        <!--colorStop: "#1a001a",-->
-        <!--bubbleFunc: () => `hsla(${Math.random() * 360}, 100%, 50%, ${Math.random() * 0.25})`-->
-    <!--});-->
-<!--</script>-->
+<script type="text/javascript" src="index.js"></script>
+<script>
+    // bubbly({
+    //     animate: true, // default is true
+    //     blur: 1, // default is 4
+    //     bubbleFunc: () => `hsla(${Math.random() * 360}, 100%, 50%, ${Math.random() * 0.25})`, // default is () => `hsla(0, 0%, 100%, ${r() * 0.1})`)
+    //     // bubbles: 100, // default is Math.floor((canvas.width + canvas.height) * 0.02);
+    //     // canvas: document.querySelector("#background"), // default is created and attached
+    //     colorStart: "#111", // default is blue-ish
+    //     colorStop: "#422",// default is blue-ish
+    //     compose: "lighter", // default is "lighter"
+    //     shadowColor: "#0ff", // default is #fff
+    // });
+    // bubbly({
+    //     colorStart: "#fff4e6",
+    //     colorStop: "#ffe9e4",
+    //     blur: 1,
+    //     compose: "source-over",
+    //     bubbleFunc: () => `hsla(${Math.random() * 50}, 100%, 50%, .3)`
+    // });
+    bubbly({
+        colorStart: "#4c004c",
+        colorStop: "#1a001a",
+        bubbleFunc: () => `hsla(${Math.random() * 360}, 100%, 50%, ${Math.random() * 0.25})`
+    });
+</script>
 </body>
 </html>
